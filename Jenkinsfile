@@ -5,20 +5,20 @@ pipeline {
 
     stage ("build") {
       steps {
-        sh "npm install"
-        sh "npm run build"
+        sh "sudo npm install"
+        sh "sudo npm run build"
       }
     }
 
     stage ("test") {
       steps {
-        sh "npm test"
+        sh "sudo npm test"
       }
     }
 
     stage ("deploy") {
       steps {
-        sh "cp -r ${WORKSPACE}/build/ /var/www/jenksins-react-app/"
+        sh "sudo cp -r ${WORKSPACE}/build/ /var/www/jenksins-react-app/"
       }
     }
 
