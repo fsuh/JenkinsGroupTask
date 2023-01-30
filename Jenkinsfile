@@ -5,14 +5,14 @@ pipeline {
 
     stage ("build") {
       steps {
-        sh 'npm install'
-        sh 'npm run build'
+        sh "npm install"
+        sh "npm run build"
       }
     }
 
     stage ("test") {
       steps {
-        sh 'npm test'
+        sh "npm test"
       }
     }
 
