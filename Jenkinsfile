@@ -1,11 +1,26 @@
-/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'node:16.17.1-alpine' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'node --version'
-            }
-        }
+  agent any
+
+  stages {
+
+    stage ("build") {
+      steps {
+        echo 'building our app...'
+      }
     }
+
+    stage ("test") {
+      steps {
+        echo 'testing our app...'
+      }
+    }
+
+    stage ("deploy") {
+      steps {
+        echo 'deploying our app...'
+      }
+    }
+
+  }
+
 }
