@@ -5,7 +5,7 @@ pipeline {
 
     stage ("build") {
       steps {
-        echo 'building our app...'
+        sh "npm install"
       }
     }
 
@@ -16,8 +16,13 @@ pipeline {
     }
 
     stage ("deploy") {
+        when {
+            expression{
+                currentBuild.result == null || currentBuild.result == "SUCCESS"
+            }
+        }
       steps {
-        echo 'deploying our app...'
+        sh "make publish"
       }
     }
 
