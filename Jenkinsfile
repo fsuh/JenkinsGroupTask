@@ -1,12 +1,14 @@
 pipeline {
   agent any
+  
+  tools {nodeJs ('node')}
 
   stages {
 
     stage ("build") {
       steps {
-        sh "sudo npm install"
-        sh "sudo npm run build"
+        sh "npm install"
+        sh "npm run build"
       }
     }
 
@@ -18,7 +20,7 @@ pipeline {
 
     stage ("deploy") {
       steps {
-        sh "sudo cp -r ${WORKSPACE}/build/ /var/www/jenksins-react-app/"
+        echo " deployed in AWS"
       }
     }
 
